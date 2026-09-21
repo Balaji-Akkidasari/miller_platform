@@ -1,0 +1,63 @@
+/* Design tokens. Light on :root, dark redefined in BOTH the media query and
+   the explicit attribute so a manual toggle and the system preference agree. */
+:root {
+  --brand:#143754; --brand-2:#1E5079;
+  --void:#F5F8FC; --carbon:#FFFFFF; --panel:#FFFFFF; --raise:#EFF4FA; --sunk:#E9F0F8;
+  --line:#DFE7F1; --line-2:#C6D4E4;
+  --chalk:#0D1E31; --ash:#53677E; --dim:#7B8CA2;
+  --azure:#0B5FD4; --on-azure:#FFFFFF; --azure-soft:#E4EEFC;
+  --teal:#06857A;  --on-teal:#FFFFFF;  --teal-soft:#DFF3F0;
+  --amber:#96581B; --on-amber:#FFFFFF; --amber-soft:#F8EEE2;
+  --iris:#5B46C8;  --iris-soft:#ECE9FB;
+  --good:#1B7A4B; --warn:#8A6100; --bad:#B22F3E;
+  --nav-ink:#143754; --nav-on:#0B5FD4;
+
+  --shadow-1:0 1px 2px rgba(13,30,49,.06);
+  --shadow-2:0 1px 3px rgba(13,30,49,.08), 0 8px 24px rgba(13,30,49,.07);
+
+  --pill:980px; --r-card:18px; --r-tile:22px; --r-input:12px;
+  --sf:-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+       "Helvetica Neue", "Inter", Helvetica, Arial, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* one gutter value, widened as the viewport grows */
+  --gutter:16px;
+  --maxw:1240px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --brand:#2E6A9E; --brand-2:#4E8CC4;
+    --void:#081320; --carbon:#0C1A2A; --panel:#102133; --raise:#17304A; --sunk:#0A1726;
+    --line:#1D3350; --line-2:#2B4763;
+    --chalk:#E8EFF7; --ash:#94A8BE; --dim:#6D8299;
+    --azure:#6FB4FF; --on-azure:#04121F; --azure-soft:#102E4E;
+    --teal:#3FD3C4;  --on-teal:#03201D;  --teal-soft:#0C3330;
+    --amber:#DE9B57; --on-amber:#1F1205; --amber-soft:#2F2314;
+    --iris:#9E92FF;  --iris-soft:#211E45;
+    --good:#42C481; --warn:#D9A441; --bad:#E8707E;
+    --nav-ink:#E6F0FA; --nav-on:#6FB4FF;
+    --shadow-1:0 1px 2px rgba(0,0,0,.4);
+    --shadow-2:0 1px 3px rgba(0,0,0,.45), 0 8px 24px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"] {
+  --brand:#2E6A9E; --brand-2:#4E8CC4;
+  --void:#081320; --carbon:#0C1A2A; --panel:#102133; --raise:#17304A; --sunk:#0A1726;
+  --line:#1D3350; --line-2:#2B4763;
+  --chalk:#E8EFF7; --ash:#94A8BE; --dim:#6D8299;
+  --azure:#6FB4FF; --on-azure:#04121F; --azure-soft:#102E4E;
+  --teal:#3FD3C4;  --on-teal:#03201D;  --teal-soft:#0C3330;
+  --amber:#DE9B57; --on-amber:#1F1205; --amber-soft:#2F2314;
+  --iris:#9E92FF;  --iris-soft:#211E45;
+  --good:#42C481; --warn:#D9A441; --bad:#E8707E;
+  --nav-ink:#E6F0FA; --nav-on:#6FB4FF;
+  --shadow-1:0 1px 2px rgba(0,0,0,.4);
+  --shadow-2:0 1px 3px rgba(0,0,0,.45), 0 8px 24px rgba(0,0,0,.35);
+}
+
+/* Four device bands. Everything below is fluid between them, so there is no
+   width at which the layout is merely "not broken" rather than designed. */
+@media (min-width: 601px)  { :root { --gutter:24px; } }   /* tablet  */
+@media (min-width: 901px)  { :root { --gutter:32px; } }   /* laptop  */
+@media (min-width: 1281px) { :root { --gutter:40px; } }   /* desktop */
